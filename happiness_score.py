@@ -10,7 +10,7 @@ country_scores = whr_data[['country', '2022']]
 print(country_scores[country_scores['country'] == 'Afghanistan'])
 print(country_scores[country_scores['country'] == 'Angola'])
 print(country_scores[country_scores['country'] == 'Albania'])
-print(country_scores[country_scores['country'] == 'UAE'])
+print(country_scores[country_scores['country'] == 'United Arab Emirates'])
 print(country_scores[country_scores['country'] == 'Argentina'])
 print(country_scores[country_scores['country'] == 'Armenia'])
 print(country_scores[country_scores['country'] == 'Australia'])

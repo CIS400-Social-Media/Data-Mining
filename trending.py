@@ -1,6 +1,8 @@
 from googleapiclient.discovery import build
 from textblob import TextBlob
 from googleapiclient.errors import HttpError
+import pandas as pd
+import json
 
 # Define YouTube Data API key
 API_KEY = "AIzaSyBbNNLvSYXVFeukr_UDrXtPi4lbt8Y86Uo"
@@ -42,7 +44,7 @@ def get_trending_videos(country_code, max_results=10):
 def analyze_video_comments(video_id):
     try:
         # Make API request to retrieve video comments
-        request = youtube.commentThreads().list(part="snippet", videoId=video_id, maxResults=10)
+        request = youtube.commentThreads().list(part="snippet", videoId=video_id, maxResults=5)
         response = request.execute()
 
         # Extract comments from the response
@@ -75,6 +77,9 @@ if __name__ == "__main__":
     # Get country codes and names
     country_codes = get_country_codes()
 
+    # Initialize empty lists to store data
+    data = []
+
     # Get trending videos for each country
     for country_code, country_name in country_codes.items():
         print(f"Trending Videos in {country_name}:")
@@ -84,6 +89,12 @@ if __name__ == "__main__":
             print(f"{i}. {video_title} by {channel_title} - {category_name}")
             # Analyze comments
             sentiment = analyze_video_comments(video_id)
+            data.append((country_name, video_title, category_name, sentiment))
             print(f"   Sentiment: {sentiment}")
         print()
 
+    with open('data.json', 'w') as f:
+        json.dump(data, f)
+
+
+    
