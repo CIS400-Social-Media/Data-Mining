@@ -1,9 +1,13 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import sys
 
 # Selects which graph to show
 show = 5
+
+if len(sys.argv) == 2:
+    show = int(sys.argv[1])
 
 # Gets data from csv
 if(show == 1):
