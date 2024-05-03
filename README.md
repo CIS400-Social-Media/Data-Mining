@@ -4,6 +4,8 @@
 
 Github Link: https://github.com/CIS400-Social-Media/Data-Mining
 
+*** Make sure your python version is `python3.9`. Google Auth does not support the latest versions of python yet such as `python3.12`.
+
 1. Insure python is installed by running `python3 –-version` in terminal. Insure pip is installed by running `pip3 –-version` in terminal.
 2. Open up the terminal and change your directory to a place you would like to save the project. Using Git clone the repository `git clone git@github.com:CIS400-Social-Media/Data-Mining.git` Use the ls command to verify the newly made Data-Mining project folder is in the directory
 3. cd into the Data-Mining directory
